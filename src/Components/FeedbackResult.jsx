@@ -68,6 +68,7 @@ function getSubjects(){
                     title:"No Details Detected",
                     showConfirmButton:false,
                 });
+                navigate("/ResultDetails");
             }
          
             setSub(data["sub"]);   
@@ -232,53 +233,45 @@ function displayContent(str,idx){
    <div className="overflow-x-auto grid  defaultClass " id="capture">
   
         <div className="p-10">
-        <div className="text-center">
-            <h1 className=" text-3xl">VELAMMAL ENGINEERING COLLEGE</h1>
-            <h1>FEED BACK PUBLICATION</h1> <br />
+        <div className="text-center ">
+            <h1 className=" text-3xl ">VELAMMAL ENGINEERING COLLEGE</h1>
+            <h1 className="text-2xl">FEEDBACK PUBLICATION</h1> 
+            <h1 className="text-xl ">DEPARTMENT OF {value["Dept"]}</h1>
+            <h1 className="text-md">({(value["Sem"]%2==0)?"EVEN":"ODD"  } SEMESTER / {academic_year} )</h1>
+
         </div>
-        <div className="w-full p-10 flex justify-center gap-10">
+        <div className="w-full p-10 flex justify-center gap-10 items-center">
     {/* Feedback subject information left */}
-        <table className="h-fit">
+        <table className="h-fit text-xl">
         <thead >
-            <tr>
-                <td colSpan={2}>{(value["Sem"]%2==0)?"EVEN":"ODD"  } SEMESTER</td>
-                
-            </tr>
+          
             </thead>
             <tbody>
             <tr>
-                <td className="pr-2">Staff Name:</td>
-                <td>{staff[current]}</td>
+            <td className="pr-2">Subject Name:</td>
+            <td>{sub[current]}</td>
             </tr>
-            <tr>
-                <td>Semester:</td>
-                <td>{value["Sem"]}</td>
-            </tr>
-            <tr>
-                <td>Department:</td>
-                <td>{value["Course"]}-{value["Dept"]}</td>
-            </tr>
+            <td>Year:</td>
+            <td  ><span className="font-serif">{convertToRoman(Math.ceil(value["Sem"]/2))}</span> - {value["Sec"]}</td>
+            
 
             </tbody>
         </table>
 
     {/* Feedback subject information right */}
-        <table className="h-fit" >
-                    <thead>
-                    <tr>
-                        <td colSpan={2} className="float-left">ACADEMIC YEAR :</td>
-                        {academic_year && <td>{academic_year}</td>}
-                    </tr>
-                    </thead>
+        <table className="h-fit  text-xl" >
+                    
             <tbody>
                 <tr>
-                    <td className="pr-2">Subject Name:</td>
-                    <td>{sub[current]}</td>
+                <td className="pr-2">Staff Name:</td>
+                <td>{staff[current]}</td>
+                    
                 </tr>
                 <tr>
-                    <td>Year:</td>
-                    <td >{convertToRoman(Math.ceil(value["Sem"]/2))}</td>
-                </tr>
+                <td>Semester:</td>
+                <td>{value["Sem"]}</td>
+            </tr>
+         
             </tbody>
             
         </table>

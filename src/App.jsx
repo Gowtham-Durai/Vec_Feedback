@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'; 
 import { Routes, Route } from 'react-router-dom'; 
  
-// Import components using React.lazy 
+
 const StudentLogin = React.lazy(() => import('./Components/StudentLogin')); 
 const StaffLogin = React.lazy(() => import('./Components/StaffLogin')); 
 const NewStaff = React.lazy(() => import('./Components/Security/NewStaff')); 
@@ -12,16 +12,16 @@ const AdminPortal = React.lazy(() => import('./Components/AdminPortal'));
 const StudentFeedback = React.lazy(() => import('./Components/StudentFeedback')); 
 const CreateCourseDept = React.lazy(() => import('./Components/CreateCourseDept')); 
 const ResultDetails = React.lazy(() => import('./Components/ResultDetails'));
-// const FeedbackResult = React.lazy(() => import('./Components/FeedbackResult')); 
+
 const Mainportal = React.lazy(() => import('./Components/Mainportal')); 
 import FeedbackResult from './Components/FeedbackResult';
 import FeedbackTruncate from './Components/FeedbackTruncate';
-// import Mainportal from './Components/mainportal';
+
 const StaffSubjects = React.lazy(() => import('./Components/StaffSubjects')); 
 const NotFound = React.lazy(() => import('./Components/Security/NotFound')); 
 const DBView=React.lazy(()=>import("./Components/DBView"));
 const Navbar = React.lazy(() => import('./Components/Navbar')); 
- 
+
 const routes = [ 
   { path: '/', element: <StudentLogin />, index: true }, 
   { path: '/FeedTruncate', element: <FeedbackTruncate /> }, 
@@ -52,9 +52,11 @@ function App() {
       
       </div>}> 
       <Routes> 
+      
         {routes.map((route, index) => ( 
           <Route key={index} path={route.path} element={route.element} /> 
-        ))} 
+        ))}
+        
         <Route path="*" element={<NotFound />} /> 
       </Routes> 
     </Suspense> 

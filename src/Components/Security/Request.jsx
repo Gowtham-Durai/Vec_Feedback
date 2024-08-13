@@ -6,7 +6,8 @@ import Swal from 'sweetalert2';
 const ip=window.location.hostname;
 const token=import.meta.env.VITE_TOKEN;
 export async function Request(Req={input:{}},
-    successMsg,onSuccess=()=>{},failureMsg="",onFailure=()=>{},dup="",onDup=()=>{}){
+    successMsg,onSuccess=()=>{},failureMsg="",
+    onFailure=()=>{},dup="",onDup=()=>{}){
     
     
      await axios.post("http://"+ip+"/Api/"+Req["request"],Req["input"],

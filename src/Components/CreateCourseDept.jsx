@@ -28,7 +28,8 @@ export default function CreateCourseDept(){
             
             Request({request:"NewDept",input:input},
             "Dept Created successfully",()=>{window.location.reload();},
-            "Error Creating Dept",()=>{sessionStorage.setItem("StaffLogin",false);}
+            "Error Creating Dept",()=>{sessionStorage.setItem("StaffLogin",false);
+            },"Duplicate Department Not allowed"
              );
         }
        else{
